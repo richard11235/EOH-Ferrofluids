@@ -69,7 +69,6 @@ for sequence in convertedlist[:-1]: #Creating list of [time,note]
 #Eliminating redundancies and setting silences to 0
 finallist.append([-1])
 
-
 track = 1 #Writing new files
 prevLED = 3
 for notes in finallist:
@@ -89,7 +88,10 @@ for notes in finallist:
         timestamps= []
         LEDs = []
         track = int(notes[0])
-    timestamps.append(notes[1])
+    try:
+        timestamps.append(int(notes[1]))
+    except:
+        timestamps.append(int(notes[1]))
     if notes[2] == 0:
         LEDs.append('NONE')
         track = int(notes[0]) #Setting track
